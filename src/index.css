@@ -17,6 +17,18 @@ body {
 .btn-primary {
   background-color: #5800FF;
 }
+@media only screen and (max-height: 1000px){
+  .hasil {
+    height: 650px;
+  }
+  .menu {
+    height: 800px;
+  }
+}
+
+.overflow-auto::-webkit-scrollbar {
+  display: none;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

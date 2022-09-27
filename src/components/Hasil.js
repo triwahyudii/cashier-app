@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Badge, Col, ListGroup, Row } from "react-bootstrap";
+import { Badge, Col, ListGroup, Row, Card } from "react-bootstrap";
 import { numberWithCommas } from "../utils/numbercommas";
 import ModalKeranjang from "./ModalKeranjang";
 import TotalBayar from "./TotalBayar";
@@ -74,6 +74,7 @@ export default class Hasil extends Component {
     axios
       .put(API_URL + "keranjangs/" + this.state.keranjangDetail.id, data)
       .then(res => {
+        this.props.getListKeranjang();
         swal({
           title: "Update Pesanan",
           text: "Pesanan Berhasil di Update! " + data.product.nama,
@@ -95,6 +96,7 @@ export default class Hasil extends Component {
     axios
       .delete(API_URL + "keranjangs/" + id)
       .then(res => {
+        this.props.getListKeranjang();
         swal({
           title: "Hapus Pesanan",
           text: "Pesanan Berhasil di Hapus! " + this.state.keranjangDetail.product.nama,
@@ -112,14 +114,16 @@ export default class Hasil extends Component {
   render() {
     const { keranjangs } = this.props;
     return (
-      <Col md={3} mt="2">
+      <Col md={3} className='mt-3'>
         <h4>
           <strong>Hasil</strong>
         </h4>
         <hr />
         {keranjangs.length !== 0 && (
+          <Card className="overflow-auto hasil">
           <ListGroup variant="flush">
             {keranjangs.map((menuKeranjang) => (
+              
               <ListGroup.Item
                 key={menuKeranjang.id}
                 onClick={() => this.handleShow(menuKeranjang)}
@@ -143,6 +147,7 @@ export default class Hasil extends Component {
                   </Col>
                 </Row>
               </ListGroup.Item>
+              
             ))}
 
             <ModalKeranjang
@@ -155,6 +160,7 @@ export default class Hasil extends Component {
               hapusPesanan={this.hapusPesanan}
             />
           </ListGroup>
+          </Card>
         )}
 
         <TotalBayar keranjangs={keranjangs} {...this.props} />
