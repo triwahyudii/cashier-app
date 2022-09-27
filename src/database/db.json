@@ -185,8 +185,8 @@
   ],
   "keranjangs": [
     {
-      "jumlah": 2,
-      "total_harga": 28000,
+      "jumlah": 3,
+      "total_harga": 42000,
       "product": {
         "id": 2,
         "kode": "K-02",
@@ -199,41 +199,8 @@
           "nama": "Makanan"
         }
       },
+      "keterangan": "Porsi jumbo..",
       "id": 1
-    },
-    {
-      "jumlah": 1,
-      "total_harga": 14000,
-      "product": {
-        "id": 2,
-        "kode": "K-02",
-        "nama": "Nasi Goreng Telur",
-        "harga": 14000,
-        "is_ready": true,
-        "gambar": "nasi-goreng-telor.jpg",
-        "category": {
-          "id": 1,
-          "nama": "Makanan"
-        }
-      },
-      "id": 2
-    },
-    {
-      "jumlah": 1,
-      "total_harga": 14000,
-      "product": {
-        "id": 2,
-        "kode": "K-02",
-        "nama": "Nasi Goreng Telur",
-        "harga": 14000,
-        "is_ready": true,
-        "gambar": "nasi-goreng-telor.jpg",
-        "category": {
-          "id": 1,
-          "nama": "Makanan"
-        }
-      },
-      "id": 3
     }
   ],
   "pesanans": [

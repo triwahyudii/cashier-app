@@ -13,7 +13,9 @@ const ModalKeranjang = ({
   tambah,
   kurang,
   changeHandler,
-  handleSubmit
+  handleSubmit,
+  totalHarga,
+  hapusPesanan
 }) => {
   if (keranjangDetail) {
     return (
@@ -31,7 +33,7 @@ const ModalKeranjang = ({
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Total Harga :</Form.Label>
-              <p>RP {numberWithCommas(keranjangDetail.total_harga)}</p>
+              <p>RP {numberWithCommas(totalHarga)}</p>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Jumlah :</Form.Label>
@@ -40,18 +42,19 @@ const ModalKeranjang = ({
                 variant="primary"
                 size="sm"
                 className="mr-5"
-                onClick={() => tambah()}
+                onClick={() => kurang()}
               >
-                <FontAwesomeIcon icon={faPlus} />
+                <FontAwesomeIcon icon={faMinus} />
               </Button>
-              <strong> {jumlah} </strong>
+              
+              <strong>  {jumlah}  </strong>
               <Button
                 variant="primary"
                 size="sm"
                 className="ml-5"
-                onClick={() => kurang()}
+                onClick={() => tambah()}
               >
-                <FontAwesomeIcon icon={faMinus} />
+                <FontAwesomeIcon icon={faPlus} />
               </Button>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicText">
@@ -70,7 +73,7 @@ const ModalKeranjang = ({
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger">
+          <Button variant="danger" onClick={() => hapusPesanan(keranjangDetail.id)}>
             <FontAwesomeIcon icon={faTrash} /> Hapus
           </Button>
         </Modal.Footer>
